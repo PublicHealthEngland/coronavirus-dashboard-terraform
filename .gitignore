@@ -1,0 +1,4 @@
+tf.plan
+.terraform/terraform.tfstate
+.terraform/plugins/linux_amd64/lock.json
+.terraform/plugins/linux_amd64/terraform-provider-azurerm_v2.0.0_x5
