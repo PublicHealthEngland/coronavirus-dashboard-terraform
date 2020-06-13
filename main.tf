@@ -112,7 +112,6 @@ resource "azurerm_app_service" "dash" {
   lifecycle {
     ignore_changes = [ site_config.0.scm_type,  ]
     }
-
 }
 
 resource "azurerm_storage_account" "function" {
@@ -178,7 +177,7 @@ resource "azurerm_log_analytics_solution" "dash" {
 }
 
 resource "azurerm_cosmosdb_account" "dash" {
-  name                = "covid19pubdash"
+  name                = "covid19pubdash${lower(var.environment)}"
   location            = azurerm_resource_group.dash.location
   resource_group_name = azurerm_resource_group.dash.name
   offer_type          = "Standard"
@@ -201,8 +200,8 @@ resource "azurerm_cosmosdb_account" "dash" {
               Application = "Dashboards", 
               Contact = "PHE/MSFT", 
               CosmosAccountType = "Non-Production",
-              Criticality       = "Tier 1",
-              Environment       = "DEV",
+              Criticality       = "Tier 2",
+              Environment       = "${upper(var.environment)}",
               Owner             = "COVID19",
               defaultExperience = "Core (SQL)",
               hidden-cosmos-mmspecial = ""
