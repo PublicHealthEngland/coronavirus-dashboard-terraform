@@ -1,1 +1,1 @@
-# coronavirus-dashboard-terrafrom
+# coronavirus-dashboard-terrafrom [DEPRECATED]
